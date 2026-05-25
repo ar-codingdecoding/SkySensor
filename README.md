@@ -75,3 +75,4 @@ A beautiful, high-performance weather intelligence application built with **Reac
 
 ## 🤝 Contact
 Developed by [ar-codingdecoding](https://github.com/ar-codingdecoding).
+Email - ar.bppimt2022@gmail.com
