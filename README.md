@@ -31,7 +31,7 @@ A beautiful, high-performance weather intelligence application built with **Reac
 
 * **Core Framework**: React 18 (Hooks, functional components)
 * **Type Safety**: TypeScript 5.x (Strict compilation)
-* **Build System**: Vite (Sub-second HMR & optimized production bundling)
+* **Build System**: Vite (Optimized production bundling)
 * **Styling**: Vanilla CSS (Glassmorphism, custom keyframes, variables)
 * **Icons**: Lucide React
 
@@ -72,45 +72,6 @@ A beautiful, high-performance weather intelligence application built with **Reac
    The production-ready assets will be generated in the `/dist` folder.
 
 ---
-
-## 🌐 Deployment to GitHub Pages
-
-To publish this weather dashboard to your GitHub account:
-
-1. **Install deployment package**:
-   ```bash
-   npm install --save-dev gh-pages
-   ```
-
-2. **Update `vite.config.ts`**:
-   Add the repository path as the base path (replace `'WeatherReport'` with your actual repository name):
-   ```typescript
-   export default defineConfig({
-     plugins: [react()],
-     base: '/WeatherReport/',
-   });
-   ```
-
-3. **Configure `package.json`**:
-   Add your homepage url and deployment scripts:
-   ```json
-   "homepage": "https://<your-username>.github.io/<your-repository-name>",
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
-   }
-   ```
-
-4. **Deploy**:
-   ```bash
-   npm run deploy
-   ```
-   Your app will compile and deploy automatically. Within a couple of minutes, your live site will be ready at your homepage URL.
-
----
-
-## 📄 License
-This project is open-source and available under the MIT License.
 
 ## 🤝 Contact
 Developed by [ar-codingdecoding](https://github.com/ar-codingdecoding).
