@@ -1,46 +1,116 @@
-# WeatherReport
+# 🌤️ SkySensor - Advanced Weather Intelligence Dashboard
 
-## Live Demo 
-https://weather-report-mocha.vercel.app/
+A beautiful, high-performance weather intelligence application built with **React**, **TypeScript**, and **Vite**. Featuring a premium glassmorphic dashboard design, local caching, search suggestions, interactive forecast charts, geolocation support, search history tracking, and dynamic weather animations.
 
-## Overview
-WeatherReport is a web application that provides real-time weather updates for various locations. It fetches weather data from an API and displays key information such as temperature, humidity, wind speed, and weather conditions.
+---
 
-## Features
-- Fetch real-time weather data.
-- User-friendly interface.
-- Search functionality to find weather conditions in different cities.
-- Responsive design.
+## 🌟 Key Features
 
-## Technologies Used
-- **Frontend:** HTML, CSS, JavaScript
-- **API:** OpenWeather API (or any other weather API)
+* **🎭 Dynamic Weather Scenes**: Dynamically changes the container's background image to match the city's current conditions. It is overlaid with GPU-accelerated particle effects:
+  * *Rain / Drizzle*: Streams of falling rain drops.
+  * *Snow*: Swirling, swaying white snowflakes.
+  * *Thunderstorm*: Random screen flashes simulating lightning.
+  * *Clouds*: Drifting volumetric clouds.
+  * *Mist / Fog*: Slow, sweeping low-visibility fog layers.
+  * *Clear / Sunny*: Warm sun glow and pulsing ray flares.
+* **📊 SVG Trends Dashboard**: An interactive, responsive custom SVG chart visualization.
+  * *Temperature Line*: Smooth bezier curve trend lines with gradient area shading.
+  * *Humidity Bars*: Color-gradient vertical bar indicators.
+  * *Hover Details*: Hovering over points/bars overlays date-specific statistics at the bottom of the card.
+* **📂 Search History Drawer**: Quick-access history list of recently searched cities (caps at 8 items). Supports selecting a city to re-fetch weather, deleting specific cities, or clearing all. Saves state in `localStorage`.
+* **🔍 Debounced Autocomplete suggestions**: Search queries are debounced by **350ms** and request matching suggestions from the OpenWeather Geocoding API, letting users pick coordinate-precise locations from a list.
+* **🧭 Integrated Geolocation**: Automatically detects and loads local weather on initial page load, with a manual button to query location coordinates on demand.
+* **👥 Comparison Mode**: Supports side-by-side city widgets on desktop. Click **Compare Cities** in the navbar to open a secondary city panel with its own search history, backgrounds, and charts.
+* **⚡ API Caching**: Automatically stores API results in `localStorage` with a **10-minute expiration**. Subsequent requests for the same city or coordinates load instantly from the cache, preventing redundant network requests.
+* **🌓 Dark & Light Themes**: Sleek contrast theme toggles for navbar, backgrounds, typography, and SVG charts. Remembers your theme choice between sessions.
+* **⏳ Loading Skeletons**: Modern glassmorphic pulsing loader panels prevent layout shifts when retrieving weather information.
 
-## Installation & Setup
+---
 
-1. Clone the repository:
-   ```sh
+## 🛠️ Technology Stack
+
+* **Core Framework**: React 18 (Hooks, functional components)
+* **Type Safety**: TypeScript 5.x (Strict compilation)
+* **Build System**: Vite (Sub-second HMR & optimized production bundling)
+* **Styling**: Vanilla CSS (Glassmorphism, custom keyframes, variables)
+* **Icons**: Lucide React
+
+---
+
+## 🚀 Installation & Local Development
+
+### Prerequisites
+* [Node.js](https://nodejs.org/) (v16+ recommended)
+* npm (v8+ recommended)
+
+### Steps
+1. **Clone the Repository**:
+   ```bash
    git clone https://github.com/ar-codingdecoding/WeatherReport.git
-   ```
-2. Navigate to the project folder:
-   ```sh
    cd WeatherReport
    ```
-3. Open `index.html` in your browser.
 
-## Usage
-1. Enter a city name in the search bar.
-2. Click the "Search" button.
-3. View the weather details displayed on the screen.
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-## API Key Setup
-If the project requires an API key:
-1. Sign up at [OpenWeather API](https://openweathermap.org/) and get an API key.
-2. Replace `YOUR_API_KEY` in the code with your actual API key.
+3. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to `http://localhost:5173`.
 
-## Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request.
+4. **Verify TypeScript & Build**:
+   ```bash
+   # Typecheck
+   npx tsc --noEmit
+   
+   # Build optimized bundle
+   npm run build
+   ```
+   The production-ready assets will be generated in the `/dist` folder.
 
-## Contact
-For any queries, reach out to [ar-codingdecoding](https://github.com/ar-codingdecoding).
+---
 
+## 🌐 Deployment to GitHub Pages
+
+To publish this weather dashboard to your GitHub account:
+
+1. **Install deployment package**:
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. **Update `vite.config.ts`**:
+   Add the repository path as the base path (replace `'WeatherReport'` with your actual repository name):
+   ```typescript
+   export default defineConfig({
+     plugins: [react()],
+     base: '/WeatherReport/',
+   });
+   ```
+
+3. **Configure `package.json`**:
+   Add your homepage url and deployment scripts:
+   ```json
+   "homepage": "https://<your-username>.github.io/<your-repository-name>",
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+
+4. **Deploy**:
+   ```bash
+   npm run deploy
+   ```
+   Your app will compile and deploy automatically. Within a couple of minutes, your live site will be ready at your homepage URL.
+
+---
+
+## 📄 License
+This project is open-source and available under the MIT License.
+
+## 🤝 Contact
+Developed by [ar-codingdecoding](https://github.com/ar-codingdecoding).
